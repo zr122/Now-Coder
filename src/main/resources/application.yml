@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /community
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nowcoder
+    username: root
+    password: root
+  thymeleaf:
+    cache: false
+  #    spring Email配置文件
+  mail:
+    host: smtp.sina.com
+    port: 465
+    username: shouzhi040202@sina.com
+    password: 57dc3ed1b04e0d0b
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+  #redis 配置文件
+  data:
+    redis:
+      database: 11
+      host: localhost
+      port: 6379
+mybatis:
+  mapper-locations:
+#  指定xml文件位置
+            classpath: mapper/*.xml
+  configuration:
+    #驼峰命名映射
+    map-underscore-to-camel-case: true
+    #是否自动生成主键
+    use-generated-keys: true
+    #实体类文件所在位置
+  type-aliases-package: com.nowcoder.community.pojo
+
+
+#自定义路径，用于配置网站域名
+community:
+  path:
+    domain: http://loccalhoast:8080
+    upload: D:\JavaCode\NowCoder\imgs
